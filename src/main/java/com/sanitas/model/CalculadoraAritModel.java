@@ -42,4 +42,11 @@ public class CalculadoraAritModel implements Serializable {
     }
 
 
+    public int getResta() {
+        int res= ((Integer)operadores.get(0)).intValue();
+        for (int i = 1; i <operadores.size() ; i++) {
+            res = res - ((Integer) operadores.get(i)).intValue();
+        }
+        return res;
+    }
 }

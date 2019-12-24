@@ -22,7 +22,7 @@ class CalculadoraTests {
 	}
 
 	@Test
-	public void initOpers() {
+	public void testInitOpers() {
 		CalculadoraAritModel calcAM = new CalculadoraAritModel();
 		calcAM.setOperadores(inicializardatos(3,5));
 
@@ -35,6 +35,14 @@ class CalculadoraTests {
 
 		calcAM.setOperadores(inicializardatos(3,5));
 		assertEquals( 8, calcAM.getSuma());
+
+	}
+
+	@Test
+	void testResta2Operadores() {
+		CalculadoraAritModel calcAM = new CalculadoraAritModel();
+		calcAM.setOperadores(inicializardatos(5,4));
+		assertEquals( 1, calcAM.getResta());
 
 	}
 
