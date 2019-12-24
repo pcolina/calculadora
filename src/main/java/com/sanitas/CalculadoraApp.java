@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class Calculadora {
+public class CalculadoraApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(Calculadora.class, args);
+		SpringApplication.run(CalculadoraApp.class, args);
 	}
 
 	@RequestMapping("calculadora")
-	public String saludar(){
-		return "Calculadora de Sanitas!";
+	public String init(){
+		return "Microservicios REST sanitas>Calculadora OK !";
 	}
 
 }
