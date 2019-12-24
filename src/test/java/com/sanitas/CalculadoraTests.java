@@ -1,9 +1,11 @@
 package com.sanitas;
 
-import com.sanitas.model.CalculadoraAritModel;
+import com.sanitas.model.RestarModel;
+import com.sanitas.model.SumarModel;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,33 +14,49 @@ import static org.junit.Assert.assertEquals;
 @SpringBootTest
 class CalculadoraTests {
 
-	private CalculadoraAritModel calcAM  = new CalculadoraAritModel();
+	private SumarModel calcSuma  = new SumarModel();
+	private RestarModel  calcResta  = new RestarModel();
 
+    BigDecimal bd1 = new BigDecimal(3);
+	BigDecimal bd2 = new BigDecimal(5);
 
 	@Test
-	public void testInitOpers() {
-		inicializarDatos(3,5);
-		assertEquals( 2, calcAM.getNumOper());
+	public void testInitOpersSuma() {
+		inicializarDatosSuma(bd1,bd2);
+		assertEquals( 2, calcSuma.getNumOper());
+	}
+
+	@Test
+	public void testInitOpersResta() {
+		inicializarDatosResta(bd1,bd2);
+		assertEquals( 2, calcResta.getNumOper());
 	}
 
 	@Test
 	public void testSuma2Operadores() {
-		inicializarDatos(3,5);
-		assertEquals( 8, calcAM.getSuma());
+		inicializarDatosSuma(bd1,bd2);
+		assertEquals( 8, calcSuma.getSuma());
 
 	}
 
 	@Test
 	void testResta2Operadores() {
-		inicializarDatos(3,5);
-		assertEquals( -2, calcAM.getResta());
+		inicializarDatosResta(bd1,bd2);
+		assertEquals( -2, calcResta.getResta());
 
 	}
 
-	private  void inicializarDatos(int a, int b){
+	private  void inicializarDatosSuma(BigDecimal a, BigDecimal b){
 		List listaOp = new ArrayList();
 		listaOp.add(a);
 		listaOp.add(b);
-		calcAM.setOperadores(listaOp);
+		calcSuma.setOperadores(listaOp);
+	}
+
+	private  void inicializarDatosResta(BigDecimal a, BigDecimal b){
+		List listaOp = new ArrayList();
+		listaOp.add(a);
+		listaOp.add(b);
+		calcResta.setOperadores(listaOp);
 	}
 }
